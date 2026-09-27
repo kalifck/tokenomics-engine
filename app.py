@@ -36,10 +36,7 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------
-# Custom Styling
-# ---------------------------------------------------------
-# ---------------------------------------------------------
-# Custom 2027 Cyber-Institutional Styling & Visual Themes
+# Custom Cyber-Institutional Styling & Visual Themes
 # ---------------------------------------------------------
 st.markdown("""
 <style>
@@ -96,7 +93,7 @@ st.markdown("""
         color: #94a3b8;
     }
 
-    /* Metric Box (2027 Glassmorphism) */
+    /* Metric Box (Glassmorphic) */
     .metric-box {
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -317,10 +314,10 @@ st.markdown("""
 
 
 # ---------------------------------------------------------
-# Helper Functions: 2027 Visual Figures & Gauges
+# Helper Functions: Institutional Visual Figures & Gauges
 # ---------------------------------------------------------
-def create_2027_radial_gauge(score, grade_info):
-    """Generates an institutional 2027 radial safety gauge with glowing thresholds."""
+def create_institutional_radial_gauge(score, grade_info):
+    """Generates an institutional radial safety gauge with glowing thresholds."""
     grade = grade_info.get("grade", "BBB")
     color = grade_info.get("color", "#3b82f6")
     verdict = grade_info.get("verdict", "Moderate Risk")
@@ -373,8 +370,8 @@ def create_2027_radial_gauge(score, grade_info):
     return fig
 
 
-def apply_2027_theme(fig, height=None):
-    """Applies institutional dark 2027 styling to any Plotly figure."""
+def apply_institutional_theme(fig, height=None):
+    """Applies institutional dark styling to any Plotly figure."""
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
@@ -568,13 +565,13 @@ else:
     }
 
 # ---------------------------------------------------------
-# Cyber-Ticker Ribbon (2027 Live Telemetry)
+# Cyber-Ticker Ribbon (Live Telemetry)
 # ---------------------------------------------------------
 st.markdown("""
 <div class='cyber-ticker'>
     <div style='display: flex; align-items: center;'>
         <span class='pulse-dot'></span>
-        <span class='ticker-tag'>AURA // QUANT ENGINE 2027</span>
+        <span class='ticker-tag'>AURA // QUANT ENGINE</span>
         <span style='margin: 0 12px; color: rgba(255, 255, 255, 0.15);'>|</span>
         <span class='ticker-item'>TELEMETRY: <b style='color: #00ff87;'>LIVE DECENTRALIZED PUBLIC</b></span>
     </div>
@@ -862,8 +859,8 @@ grade_info = scoring.calculate_grade(composite_score)
 with col_vis:
     st.subheader("📈 Fundamental Safety Profile")
 
-    # 2027 Institutional Radial Safety Gauge
-    st.plotly_chart(create_2027_radial_gauge(composite_score, grade_info), use_container_width=True)
+    # Institutional Radial Safety Gauge
+    st.plotly_chart(create_institutional_radial_gauge(composite_score, grade_info), use_container_width=True)
 
     # Holographic Grade & Verdict Summary Card
     st.markdown(f"""
@@ -1029,7 +1026,7 @@ with col_vis:
             margin=dict(l=10, r=10, t=20, b=10),
             legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5)
         )
-        apply_2027_theme(fig_margin, height=260)
+        apply_institutional_theme(fig_margin, height=260)
         st.plotly_chart(fig_margin, use_container_width=True)
 
     # Tab 3: DAO Treasury Health & Liquid Solvency
@@ -1068,7 +1065,7 @@ with col_vis:
                 insidetextfont=dict(size=11, family='JetBrains Mono, monospace', color='#ffffff'),
                 hovertemplate="<b>%{label}</b><br>Value: $%{value:,.0f}<br>Share: %{percent}<extra></extra>"
             )])
-            apply_2027_theme(fig_t, height=270)
+            apply_institutional_theme(fig_t, height=270)
             fig_t.update_layout(
                 margin=dict(l=10, r=10, t=10, b=10),
                 height=270,
@@ -1174,7 +1171,7 @@ with col_vis:
             name=f"Scenario Price ({sim_mcap_pct:+d}% MCap)",
             line=dict(color='#00f2fe', width=3)
         ))
-        apply_2027_theme(fig_sim, height=280)
+        apply_institutional_theme(fig_sim, height=280)
         fig_sim.update_layout(
             title=dict(text=f"Implied Price Trajectory ({sim_horizon}-Month Model)", font=dict(family="Space Grotesk", size=13)),
             xaxis_title="Months Ahead",
@@ -1290,7 +1287,7 @@ with col_vis:
                     insidetextfont=dict(size=11, family='JetBrains Mono, monospace', color='#ffffff'),
                     hovertemplate="<b>%{label}</b><br>Allocation: %{percent}<extra></extra>"
                 )])
-                apply_2027_theme(fig_alloc, height=270)
+                apply_institutional_theme(fig_alloc, height=270)
                 fig_alloc.update_layout(
                     margin=dict(l=10, r=10, t=10, b=10),
                     showlegend=True,
@@ -1332,7 +1329,7 @@ with col_vis:
                     insidetextfont=dict(size=11, family='JetBrains Mono, monospace', color='#ffffff'),
                     hovertemplate="<b>%{label}</b><br>Tokens: %{value:,.0f}<br>Share: %{percent}<extra></extra>"
                 )])
-                apply_2027_theme(fig_macro, height=270)
+                apply_institutional_theme(fig_macro, height=270)
                 fig_macro.update_layout(
                     margin=dict(l=10, r=10, t=10, b=10),
                     showlegend=True,
